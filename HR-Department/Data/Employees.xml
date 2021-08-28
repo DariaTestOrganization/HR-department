@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<root>
+	<employee dep_name="Компьютерный отдел" name="Ващенко Ирина" birth="12.04.1992" addr="Киев" phone ="380962344253" email="das@gmail.com" pos="Админ" salary="23000" workYears="3" photo="emp1.jpg"/>
+	<employee dep_name="Компьютерный отдел" name="Авдеенко Глеб" birth="15.08.1996" addr="Львов" phone ="380962346253" email="fje@gmail.com" pos="Кодер" salary="30000" workYears="2" photo="emp2.jpg"/>
+	<employee dep_name="Финансовый отдел" name="Шеремет Игорь" birth="18.02.1991" addr="Одесса" phone ="38096333253" email="rut@gmail.com" pos="Главный бухгалтер" salary="18000" workYears="4" photo="emp3.jpg"/>
+	<employee dep_name="Финансовый отдел" name="Петренко Максим" birth="13.05.1993" addr="Днепр" phone ="380962354653" email="lop@gmail.com" pos="Менеджер" salary="20000" workYears="5" photo="emp4.jpg"/>
+	<employee dep_name="Маркетинговый отдел" name="" birth="" addr="" phone ="" email="" pos="" salary="" workYears="" photo=""/>
+	<employee dep_name="Маркетинговый отдел" name="" birth="" addr="" phone ="" email="" pos="" salary="" workYears="" photo=""/>
+	<employee dep_name="Технологический отдел" name="" birth="" addr="" phone ="" email="" pos="" salary="" workYears="" photo=""/>
+	<employee dep_name="Технологический отдел" name="" birth="" addr="" phone ="" email="" pos="" salary="" workYears="" photo=""/>
+	<employee dep_name="Юридический отдел" name="" birth="" addr="" phone ="" email="" pos="" salary="" workYears="" photo=""/>
+	<employee dep_name="Юридический отдел" name="" birth="" addr="" phone ="" email="" pos="" salary="" workYears="" photo=""/>
+
+
+</root>

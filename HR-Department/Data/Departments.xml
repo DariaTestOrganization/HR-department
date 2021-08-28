@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root name="Отдел охраны">
+  <department name="Компьютерный отдел" />
+  <department name="Финансовый отдел" />
+  <department name="Маркетинговый отдел" />
+  <department name="Технологический отдел" />
+  <department name="Юридический отдел" />
+  <department name="Отдел охраны" />
+</root>
