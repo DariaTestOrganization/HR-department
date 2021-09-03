@@ -91,10 +91,6 @@ namespace HR_Department
                 positionEmp.Text = employee.Attribute("pos").Value;
                 salaryEmp.Text = employee.Attribute("salary").Value;
                 workYears.Text = employee.Attribute("workYears").Value;
-
-
-
-
             }
 
         }
@@ -107,6 +103,70 @@ namespace HR_Department
             {
                 photoPath = ofd.FileName;
                 empPhoto.Image = Image.FromFile(photoPath);
+            }
+        }
+
+        private void saveDepButton_Click(object sender, EventArgs e)
+        {
+            string name = depName.Text;
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                MessageBox.Show("Вы не указали имя департамента", "Предупреждение", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
+            else
+            {
+                // Смена названия в xml файле Департаментов
+                int ind = depList.SelectedIndex;
+                doc1.Element("root").Elements("department").
+                Where(emp => emp.Attribute("name").Value == depList.SelectedItem.ToString()).FirstOrDefault().Attribute("name").Value = name;
+
+                //Изменение названия отделов в xml файле Работников
+                var employee = doc2.Element("root").Elements("employee").Where(emp => emp.Attribute("dep_name").Value == depList.SelectedItem.ToString());
+                int empQuantity = employee.ToList().Count;
+                for (int i = 0; i < empQuantity; i++)
+                    employee.FirstOrDefault().Attribute("dep_name").Value = name;
+
+                // Отображение изменненого названия в ComboBox
+                depList.Items.Clear();
+                foreach (var dep in doc1.Element("root").Elements("department").ToList())
+                    depList.Items.Add(dep.Attribute("name").Value);
+                depList.SelectedIndex = ind;
+
+                doc1.Save(path1);
+                doc2.Save(path2);
+                depName.Clear();
+                MessageBox.Show("Департамент успешно изменен", "Сообщение", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+        }
+
+        private void delDepButon_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Вы точно хотите удалить департамент со всеми его сотрудниками?", "Удаление департамента", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                doc1.Element("root").Elements("department").
+                Where(emp => emp.Attribute("name").Value == depList.SelectedItem.ToString()).FirstOrDefault().Remove();
+
+                //Удаление сотрудников удаленного отдела в xml файле Работников
+                var employee = doc2.Element("root").Elements("employee").Where(emp => emp.Attribute("dep_name").Value == depList.SelectedItem.ToString());
+                int empQuantity = employee.ToList().Count;
+                for (int i = 0; i < empQuantity; i++)
+                    employee.FirstOrDefault().Remove();
+
+
+                // Отображение списка департаментов без удаленного в ComboBox
+                depList.Items.Clear();
+                foreach (var dep in doc1.Element("root").Elements("department").ToList())
+                    depList.Items.Add(dep.Attribute("name").Value);
+                depList.SelectedIndex = 0;
+
+                doc1.Save(path1);
+                doc2.Save(path2);
+                depName.Clear();
+                MessageBox.Show("Департамент успешно удален", "Сообщение", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
             }
         }
     }
