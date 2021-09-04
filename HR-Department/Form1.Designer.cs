@@ -64,7 +64,6 @@ namespace HR_Department
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.delPhotoButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.savePhotoButton = new System.Windows.Forms.Button();
             this.addPhotoButton = new System.Windows.Forms.Button();
             this.empPhoto = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
@@ -212,6 +211,7 @@ namespace HR_Department
             this.clearFieldsButton.TabIndex = 28;
             this.clearFieldsButton.Text = "Clear fields";
             this.clearFieldsButton.UseVisualStyleBackColor = true;
+            this.clearFieldsButton.Click += new System.EventHandler(this.clearFieldsButton_Click);
             // 
             // delEmpButton
             // 
@@ -232,6 +232,7 @@ namespace HR_Department
             this.saveEmpButton.TabIndex = 12;
             this.saveEmpButton.Text = "Save employee";
             this.saveEmpButton.UseVisualStyleBackColor = true;
+            this.saveEmpButton.Click += new System.EventHandler(this.saveEmpButton_Click);
             // 
             // workYears
             // 
@@ -249,6 +250,7 @@ namespace HR_Department
             this.addEmpButton.TabIndex = 11;
             this.addEmpButton.Text = "Add employee";
             this.addEmpButton.UseVisualStyleBackColor = true;
+            this.addEmpButton.Click += new System.EventHandler(this.addEmpButton_Click);
             // 
             // label12
             // 
@@ -388,7 +390,6 @@ namespace HR_Department
             // 
             this.groupBox3.Controls.Add(this.delPhotoButton);
             this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.savePhotoButton);
             this.groupBox3.Controls.Add(this.addPhotoButton);
             this.groupBox3.Controls.Add(this.empPhoto);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -402,9 +403,9 @@ namespace HR_Department
             // delPhotoButton
             // 
             this.delPhotoButton.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.delPhotoButton.Location = new System.Drawing.Point(193, 418);
+            this.delPhotoButton.Location = new System.Drawing.Point(143, 418);
             this.delPhotoButton.Name = "delPhotoButton";
-            this.delPhotoButton.Size = new System.Drawing.Size(87, 23);
+            this.delPhotoButton.Size = new System.Drawing.Size(137, 23);
             this.delPhotoButton.TabIndex = 10;
             this.delPhotoButton.Text = "Delete";
             this.delPhotoButton.UseVisualStyleBackColor = true;
@@ -418,22 +419,12 @@ namespace HR_Department
             this.label3.TabIndex = 1;
             this.label3.Text = "Фото сотрудника:";
             // 
-            // savePhotoButton
-            // 
-            this.savePhotoButton.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.savePhotoButton.Location = new System.Drawing.Point(100, 418);
-            this.savePhotoButton.Name = "savePhotoButton";
-            this.savePhotoButton.Size = new System.Drawing.Size(87, 23);
-            this.savePhotoButton.TabIndex = 9;
-            this.savePhotoButton.Text = "Save";
-            this.savePhotoButton.UseVisualStyleBackColor = true;
-            // 
             // addPhotoButton
             // 
             this.addPhotoButton.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addPhotoButton.Location = new System.Drawing.Point(6, 418);
             this.addPhotoButton.Name = "addPhotoButton";
-            this.addPhotoButton.Size = new System.Drawing.Size(87, 23);
+            this.addPhotoButton.Size = new System.Drawing.Size(131, 23);
             this.addPhotoButton.TabIndex = 8;
             this.addPhotoButton.Text = "Add";
             this.addPhotoButton.UseVisualStyleBackColor = true;
@@ -495,7 +486,6 @@ namespace HR_Department
         private System.Windows.Forms.Button addDepButton;
         private System.Windows.Forms.Button delPhotoButton;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button savePhotoButton;
         private System.Windows.Forms.Button addPhotoButton;
         private System.Windows.Forms.PictureBox empPhoto;
         private System.Windows.Forms.Label label4;

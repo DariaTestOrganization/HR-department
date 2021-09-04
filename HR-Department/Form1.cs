@@ -17,6 +17,7 @@ namespace HR_Department
         string path1;
         string path2;
         string photoPath;
+        string photoName;
 
         XDocument doc1;
         XDocument doc2;
@@ -74,25 +75,27 @@ namespace HR_Department
 
         private void empList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string emp_name = empList.SelectedItem.ToString();
-            var employee = doc2.Element("root").Elements("employee").
-                Where(emp => emp.Attribute("name").Value == emp_name).FirstOrDefault();
-            if(employee != null)
+            if(empList.SelectedIndex > -1)
             {
-                string file = employee.Attribute("photo").Value;
-                string path = @"..\..\Images\"+file;
-                empPhoto.Image = Image.FromFile(path);
+                string emp_name = empList.SelectedItem.ToString();
+                var employee = doc2.Element("root").Elements("employee").
+                    Where(emp => emp.Attribute("name").Value == emp_name).FirstOrDefault();
+                if (employee != null)
+                {
+                    string file = employee.Attribute("photo").Value;
+                    string path = @"..\..\Images\" + file;
+                    empPhoto.Image = Image.FromFile(path);
 
-                fioEmp.Text = employee.Attribute("name").Value;
-                dateBirthEmp.Text = employee.Attribute("birth").Value;
-                addressEmp.Text = employee.Attribute("addr").Value;
-                telEmp.Text = employee.Attribute("phone").Value;
-                emailEmp.Text = employee.Attribute("email").Value;
-                positionEmp.Text = employee.Attribute("pos").Value;
-                salaryEmp.Text = employee.Attribute("salary").Value;
-                workYears.Text = employee.Attribute("workYears").Value;
+                    fioEmp.Text = employee.Attribute("name").Value;
+                    dateBirthEmp.Text = employee.Attribute("birth").Value;
+                    addressEmp.Text = employee.Attribute("addr").Value;
+                    telEmp.Text = employee.Attribute("phone").Value;
+                    emailEmp.Text = employee.Attribute("email").Value;
+                    positionEmp.Text = employee.Attribute("pos").Value;
+                    salaryEmp.Text = employee.Attribute("salary").Value;
+                    workYears.Text = employee.Attribute("workYears").Value;
+                }
             }
-
         }
 
         private void addPhotoButton_Click(object sender, EventArgs e)
@@ -102,6 +105,7 @@ namespace HR_Department
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 photoPath = ofd.FileName;
+                photoName = ofd.SafeFileName;
                 empPhoto.Image = Image.FromFile(photoPath);
             }
         }
@@ -168,6 +172,79 @@ namespace HR_Department
                 MessageBox.Show("Департамент успешно удален", "Сообщение", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
             }
+        }
+
+        private void clearFieldsButton_Click(object sender, EventArgs e)
+        {
+            clearFields();
+        }
+
+        private void clearFields()
+        {
+            empList.SelectedIndex = -1;
+            fioEmp.Clear();
+            dateBirthEmp.Value = DateTime.Now;
+            addressEmp.Clear();
+            telEmp.Clear();
+            emailEmp.Clear();
+            positionEmp.Clear();
+            salaryEmp.Value = 0;
+            workYears.Value = 0;
+            empPhoto.Image = Image.FromFile(@"..\..\Images\profile.png");
+        }
+
+        private void addEmpButton_Click(object sender, EventArgs e)
+        {
+            string depName = depList.SelectedItem.ToString();
+            string name = fioEmp.Text;
+            string birth = dateBirthEmp.Value.ToShortDateString();
+            string address = addressEmp.Text;
+            string phone = telEmp.Text;
+            string email = emailEmp.Text;
+            string position = positionEmp.Text;
+            string salary = salaryEmp.Value.ToString();
+            string years = workYears.Value.ToString();
+            string photo = photoName;
+            doc2.Element("root").Add(new XElement("employee", new XAttribute("dep_name", depName), new XAttribute("name", name),
+                new XAttribute("birth", birth), new XAttribute("addr", address), new XAttribute("phone", phone),
+                new XAttribute("email", email), new XAttribute("pos", position), new XAttribute("salary", salary),
+                new XAttribute("workYears", years), new XAttribute("photo", photo)));
+            string path = @"..\..\Images\" + photo;
+            if (!File.Exists(path))
+            {
+                File.Copy(photoPath, path);
+            }
+            depList.SelectedIndex = depList.SelectedIndex;
+            clearFields();
+
+            MessageBox.Show("Сотрудник успешно добавлен", "Сообщение", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+            doc2.Save(path2);
+        }
+
+        private void saveEmpButton_Click(object sender, EventArgs e)
+        {
+            var employee = doc2.Element("root").Elements("employee").Where(emp => emp.Attribute("name").Value == empList.SelectedItem.ToString()).FirstOrDefault();
+            string name = fioEmp.Text;
+            string birth = dateBirthEmp.Value.ToShortDateString();
+            string address = addressEmp.Text;
+            string phone = telEmp.Text;
+            string email = emailEmp.Text;
+            string position = positionEmp.Text;
+            string salary = salaryEmp.Value.ToString();
+            string years = workYears.Value.ToString();
+            string photo = photoName;
+            employee.Attribute("name").Value = name;
+            employee.Attribute("birth").Value = birth;
+            employee.Attribute("phone").Value = phone;
+            employee.Attribute("email").Value = email;
+            employee.Attribute("pos").Value = position;
+            employee.Attribute("salary").Value = salary;
+            employee.Attribute("workYears").Value = years;
+
+            doc2.Save(path2);
+
         }
     }
 }
