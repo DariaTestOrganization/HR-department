@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <employee dep_name="Компьютерный отдел" name="Ващенко Ирина" birth="12.04.1992" addr="Киев" phone="380962344253" email="das@gmail.com" pos="Админ" salary="23000" workYears="3" photo="emp1.jpg" />
-  <employee dep_name="Компьютерный отдел" name="Авдеенко Глеб" birth="15.08.1996" addr="Львов" phone="380962346253" email="fje@gmail.com" pos="Кодер" salary="30000" workYears="2" photo="emp2.jpg" />
-  <employee dep_name="Компьютерный отдел" name="Карпачов Михаил" birth="06.06.1984" addr="Киев" phone="380974566354" email="hafha@dfa.com" pos="Директор" salary="40000" workYears="5" photo="empl1.jpg" />
+  <employee dep_name="Компьютерный отдел" name="Авдеенко Вася" birth="15.08.1996" addr="Львов" phone="380962346253" email="fje@gmail.com" pos="Кодер" salary="30000" workYears="2" photo="emp4.jpg" />
+  <employee dep_name="Компьютерный отдел" name="Карпачов Михаил" birth="06.06.1984" addr="Киев" phone="380974566354" email="hafha@dfa.com" pos="Директор" salary="50000" workYears="5" photo="empl1.jpg" />
+  <employee dep_name="Маркетинговый отдел" name="Смиронова Елена" birth="14.06.1997" addr="Киев" phone="380974564353" email="smir@gmail.com" pos="Маркетолог" salary="30000" workYears="2" photo="emp1.jpg" />
+  <employee dep_name="Технологический отдел" name="Аксенов Николай" birth="14.07.1995" addr="Днепр" phone="3892498265823" email="sdgshh@sjdb.com" pos="Главный" salary="400" workYears="2" photo="emp3.jpg" />
 </root>
