@@ -95,11 +95,11 @@ namespace HR_Department
             // empList
             // 
             this.empList.FormattingEnabled = true;
-            this.empList.ItemHeight = 21;
+            this.empList.ItemHeight = 15;
             this.empList.Location = new System.Drawing.Point(12, 174);
             this.empList.Name = "empList";
             this.empList.ScrollAlwaysVisible = true;
-            this.empList.Size = new System.Drawing.Size(183, 256);
+            this.empList.Size = new System.Drawing.Size(183, 244);
             this.empList.TabIndex = 7;
             this.empList.SelectedIndexChanged += new System.EventHandler(this.empList_SelectedIndexChanged);
             // 
@@ -108,7 +108,7 @@ namespace HR_Department
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 156);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(188, 21);
+            this.label2.Size = new System.Drawing.Size(134, 15);
             this.label2.TabIndex = 6;
             this.label2.Text = "Список cотрудников:";
             // 
@@ -149,7 +149,7 @@ namespace HR_Department
             // 
             this.depName.Location = new System.Drawing.Point(12, 83);
             this.depName.Name = "depName";
-            this.depName.Size = new System.Drawing.Size(183, 28);
+            this.depName.Size = new System.Drawing.Size(183, 21);
             this.depName.TabIndex = 2;
             // 
             // depList
@@ -158,7 +158,7 @@ namespace HR_Department
             this.depList.FormattingEnabled = true;
             this.depList.Location = new System.Drawing.Point(12, 54);
             this.depList.Name = "depList";
-            this.depList.Size = new System.Drawing.Size(183, 29);
+            this.depList.Size = new System.Drawing.Size(183, 23);
             this.depList.TabIndex = 1;
             this.depList.SelectedIndexChanged += new System.EventHandler(this.depList_SelectedIndexChanged);
             // 
@@ -167,7 +167,7 @@ namespace HR_Department
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(208, 21);
+            this.label1.Size = new System.Drawing.Size(149, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Список департаментов:";
             // 
@@ -222,6 +222,7 @@ namespace HR_Department
             this.delEmpButton.TabIndex = 13;
             this.delEmpButton.Text = "Delete employee";
             this.delEmpButton.UseVisualStyleBackColor = true;
+            this.delEmpButton.Click += new System.EventHandler(this.delEmpButton_Click);
             // 
             // saveEmpButton
             // 
@@ -238,7 +239,7 @@ namespace HR_Department
             // 
             this.workYears.Location = new System.Drawing.Point(121, 345);
             this.workYears.Name = "workYears";
-            this.workYears.Size = new System.Drawing.Size(102, 28);
+            this.workYears.Size = new System.Drawing.Size(102, 21);
             this.workYears.TabIndex = 27;
             // 
             // addEmpButton
@@ -257,7 +258,7 @@ namespace HR_Department
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(72, 347);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(53, 21);
+            this.label12.Size = new System.Drawing.Size(38, 15);
             this.label12.TabIndex = 26;
             this.label12.Text = "Стаж";
             // 
@@ -270,7 +271,7 @@ namespace HR_Department
             0,
             0});
             this.salaryEmp.Name = "salaryEmp";
-            this.salaryEmp.Size = new System.Drawing.Size(102, 28);
+            this.salaryEmp.Size = new System.Drawing.Size(102, 21);
             this.salaryEmp.TabIndex = 25;
             // 
             // label11
@@ -278,7 +279,7 @@ namespace HR_Department
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(46, 320);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(87, 21);
+            this.label11.Size = new System.Drawing.Size(64, 15);
             this.label11.TabIndex = 24;
             this.label11.Text = "Зарплата";
             // 
@@ -286,7 +287,7 @@ namespace HR_Department
             // 
             this.positionEmp.Location = new System.Drawing.Point(9, 282);
             this.positionEmp.Name = "positionEmp";
-            this.positionEmp.Size = new System.Drawing.Size(239, 28);
+            this.positionEmp.Size = new System.Drawing.Size(239, 21);
             this.positionEmp.TabIndex = 23;
             // 
             // label10
@@ -294,7 +295,7 @@ namespace HR_Department
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(6, 264);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(103, 21);
+            this.label10.Size = new System.Drawing.Size(73, 15);
             this.label10.TabIndex = 22;
             this.label10.Text = "Должность";
             // 
@@ -302,7 +303,7 @@ namespace HR_Department
             // 
             this.emailEmp.Location = new System.Drawing.Point(9, 237);
             this.emailEmp.Name = "emailEmp";
-            this.emailEmp.Size = new System.Drawing.Size(239, 28);
+            this.emailEmp.Size = new System.Drawing.Size(239, 21);
             this.emailEmp.TabIndex = 21;
             // 
             // label9
@@ -310,7 +311,7 @@ namespace HR_Department
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(6, 219);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(57, 21);
+            this.label9.Size = new System.Drawing.Size(42, 15);
             this.label9.TabIndex = 20;
             this.label9.Text = "Email";
             // 
@@ -318,7 +319,7 @@ namespace HR_Department
             // 
             this.telEmp.Location = new System.Drawing.Point(9, 193);
             this.telEmp.Name = "telEmp";
-            this.telEmp.Size = new System.Drawing.Size(239, 28);
+            this.telEmp.Size = new System.Drawing.Size(239, 21);
             this.telEmp.TabIndex = 19;
             // 
             // label8
@@ -326,7 +327,7 @@ namespace HR_Department
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(6, 175);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(151, 21);
+            this.label8.Size = new System.Drawing.Size(106, 15);
             this.label8.TabIndex = 18;
             this.label8.Text = "Номер телефона";
             // 
@@ -334,7 +335,7 @@ namespace HR_Department
             // 
             this.addressEmp.Location = new System.Drawing.Point(9, 148);
             this.addressEmp.Name = "addressEmp";
-            this.addressEmp.Size = new System.Drawing.Size(239, 28);
+            this.addressEmp.Size = new System.Drawing.Size(239, 21);
             this.addressEmp.TabIndex = 17;
             // 
             // label7
@@ -342,7 +343,7 @@ namespace HR_Department
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(6, 130);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 21);
+            this.label7.Size = new System.Drawing.Size(43, 15);
             this.label7.TabIndex = 16;
             this.label7.Text = "Адрес";
             // 
@@ -351,14 +352,14 @@ namespace HR_Department
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(6, 154);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(0, 21);
+            this.label6.Size = new System.Drawing.Size(0, 15);
             this.label6.TabIndex = 15;
             // 
             // dateBirthEmp
             // 
             this.dateBirthEmp.Location = new System.Drawing.Point(9, 98);
             this.dateBirthEmp.Name = "dateBirthEmp";
-            this.dateBirthEmp.Size = new System.Drawing.Size(239, 28);
+            this.dateBirthEmp.Size = new System.Drawing.Size(239, 21);
             this.dateBirthEmp.TabIndex = 14;
             // 
             // label5
@@ -366,7 +367,7 @@ namespace HR_Department
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(6, 80);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(138, 21);
+            this.label5.Size = new System.Drawing.Size(100, 15);
             this.label5.TabIndex = 13;
             this.label5.Text = "Дата рождения";
             // 
@@ -374,7 +375,7 @@ namespace HR_Department
             // 
             this.fioEmp.Location = new System.Drawing.Point(9, 54);
             this.fioEmp.Name = "fioEmp";
-            this.fioEmp.Size = new System.Drawing.Size(239, 28);
+            this.fioEmp.Size = new System.Drawing.Size(239, 21);
             this.fioEmp.TabIndex = 12;
             // 
             // label4
@@ -382,7 +383,7 @@ namespace HR_Department
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(6, 36);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 21);
+            this.label4.Size = new System.Drawing.Size(36, 15);
             this.label4.TabIndex = 11;
             this.label4.Text = "ФИО";
             // 
@@ -415,7 +416,7 @@ namespace HR_Department
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 36);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(157, 21);
+            this.label3.Size = new System.Drawing.Size(113, 15);
             this.label3.TabIndex = 1;
             this.label3.Text = "Фото сотрудника:";
             // 
@@ -442,7 +443,7 @@ namespace HR_Department
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(759, 453);
             this.Controls.Add(this.groupBox3);

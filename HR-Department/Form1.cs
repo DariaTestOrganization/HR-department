@@ -83,6 +83,8 @@ namespace HR_Department
                 if (employee != null)
                 {
                     string file = employee.Attribute("photo").Value;
+                    photoName = file;
+                    photoPath = null;
                     string path = @"..\..\Images\" + file;
                     empPhoto.Image = Image.FromFile(path);
 
@@ -192,6 +194,15 @@ namespace HR_Department
             workYears.Value = 0;
             empPhoto.Image = Image.FromFile(@"..\..\Images\profile.png");
         }
+        private void updateDepIndex()
+        {
+            int a = depList.SelectedIndex;
+            if (a == 0 || depList.SelectedIndex + 1 != depList.Items.Count)
+                depList.SelectedIndex = a + 1;
+            else
+                depList.SelectedIndex = a - 1;
+            depList.SelectedIndex = a;
+        }
 
         private void addEmpButton_Click(object sender, EventArgs e)
         {
@@ -214,7 +225,7 @@ namespace HR_Department
             {
                 File.Copy(photoPath, path);
             }
-            depList.SelectedIndex = depList.SelectedIndex;
+            updateDepIndex();
             clearFields();
 
             MessageBox.Show("Сотрудник успешно добавлен", "Сообщение", MessageBoxButtons.OK,
@@ -240,11 +251,34 @@ namespace HR_Department
             employee.Attribute("phone").Value = phone;
             employee.Attribute("email").Value = email;
             employee.Attribute("pos").Value = position;
+            employee.Attribute("addr").Value = address;
             employee.Attribute("salary").Value = salary;
             employee.Attribute("workYears").Value = years;
-
+            employee.Attribute("photo").Value = photo;
+            updateDepIndex();
+            MessageBox.Show("Сотрудник успешно изменен", "Сообщение", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
             doc2.Save(path2);
+            
+        }
 
+        private void delEmpButton_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Вы точно хотите удалить сотрудника?", "Удаление сотрудника", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                
+                //Удаление сотрудников удаленного отдела в xml файле Работников
+                var employee = doc2.Element("root").Elements("employee").Where(emp => emp.Attribute("name").Value == empList.SelectedItem.ToString()).FirstOrDefault();
+                employee.Remove();
+
+                updateDepIndex();
+
+                doc2.Save(path2);
+                clearFields();
+                MessageBox.Show("Сотрудник успешно удален", "Сообщение", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
         }
     }
 }
